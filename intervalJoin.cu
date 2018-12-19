@@ -133,7 +133,7 @@ void executeQuery_CPU(int id, int min_overlap)
 	int total_count=0;
 	
 	for(int i=0;i<setB.length[id];i++){
-		if(outCPU_End[i]-outCPU_Begin[i]+1>=min_overlap){
+		if(outCPU_End[i]>INT_MIN && outCPU_Begin[i]<INT_MAX && outCPU_End[i]-outCPU_Begin[i]+1>=min_overlap){
 			for(int k=outCPU_Begin[i];k<=outCPU_End[i];k++){
 				index_first=abs(inStartA[k]-inStartB[i])%4;
 				index_last=abs(inEndA[k]-inEndB[i])%4;
